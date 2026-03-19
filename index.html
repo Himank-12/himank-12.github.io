@@ -1,45 +1,38 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Himank 🚀</title>
+  <title>Himank ⚡</title>
 
   <style>
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
+      font-family: Arial;
       text-align: center;
       color: white;
-      background: linear-gradient(-45deg, #000, #0f2027, #203a43, #000);
-      background-size: 400% 400%;
-      animation: bg 10s infinite;
-      padding-top: 50px;
-    }
-
-    @keyframes bg {
-      0% {background-position: 0%}
-      50% {background-position: 100%}
-      100% {background-position: 0%}
+      background: black;
+      padding-top: 40px;
     }
 
     img {
       width: 120px;
       border-radius: 50%;
-      box-shadow: 0 0 25px #00ffcc;
+      margin-top: 20px;
       animation: glow 2s infinite alternate;
     }
 
     @keyframes glow {
-      from {box-shadow: 0 0 10px #00ffcc;}
-      to {box-shadow: 0 0 30px #00ffcc;}
+      from { box-shadow: 0 0 10px #00ffcc; }
+      to { box-shadow: 0 0 30px #00ffcc; }
     }
 
     h1 {
-      margin-top: 10px;
-      font-size: 28px;
+      margin: 10px;
     }
 
-    p {
-      opacity: 0.8;
+    .typing {
+      font-size: 18px;
+      color: #00ffcc;
+      height: 20px;
       margin-bottom: 20px;
     }
 
@@ -48,19 +41,17 @@
       margin: 15px auto;
       padding: 15px;
       width: 260px;
-      background: rgba(0,255,204,0.1);
+      border-radius: 30px;
       border: 1px solid #00ffcc;
       color: #00ffcc;
       text-decoration: none;
-      border-radius: 30px;
-      font-weight: bold;
       transition: 0.3s;
     }
 
     a:hover {
       background: #00ffcc;
       color: black;
-      transform: scale(1.08);
+      transform: scale(1.1);
       box-shadow: 0 0 20px #00ffcc;
     }
   </style>
@@ -70,12 +61,32 @@
 
 <img src="https://i.ibb.co/KjwG57dt/Skull-logo.jpg">
 
-<h1>Himank 🚀</h1>
-<p>Student | Tech Lover | Dream Big 💯</p>
+<h1>Himank ⚡</h1>
+<div class="typing" id="typing"></div>
 
 <a href="https://instagram.com">Instagram</a>
 <a href="https://youtube.com">YouTube</a>
 <a href="https://linktr.ee/himank12">All Links</a>
+
+<script>
+const text = ["a Cool-minded teenager 😜 | E.I.S 109 | Just a JAAT living life!"];
+let i = 0, j = 0, current = "", isDeleting = false;
+
+function type() {
+  current = text[i];
+  document.getElementById("typing").innerHTML = current.substring(0, j);
+
+  if (!isDeleting && j < current.length) j++;
+  else if (isDeleting && j > 0) j--;
+  else {
+    isDeleting = !isDeleting;
+    if (!isDeleting) i = (i + 1) % text.length;
+  }
+
+  setTimeout(type, isDeleting ? 50 : 100);
+}
+type();
+</script>
 
 </body>
 </html>
